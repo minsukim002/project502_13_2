@@ -9,6 +9,8 @@ import org.choongang.member.controllers.JoinController;
 import org.choongang.member.controllers.LoginController;
 import org.choongang.member.controllers.MemberControllerLocator;
 
+import java.sql.SQLOutput;
+
 public class MainRouter implements Router {
 
     private static Router instance;
@@ -33,7 +35,6 @@ public class MainRouter implements Router {
             case LOGIN: controller = memlocator.find(Menu.LOGIN); break;
             default: controller = new MainController();
         }
-
         controller.run();  // common(), show(), prompt()
     }
 
