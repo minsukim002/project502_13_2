@@ -9,19 +9,17 @@ import org.choongang.member.controllers.JoinController;
 import org.choongang.member.controllers.LoginController;
 import org.choongang.member.controllers.MemberControllerLocator;
 
-import java.sql.SQLOutput;
-
 public class MainRouter implements Router {
 
     private static Router instance;
 
     private MainRouter() {}
 
-    public static Router getInstance(){
+    public static Router getInstance() {
         if (instance == null) {
             instance = new MainRouter();
-
         }
+
         return instance;
     }
 
@@ -30,18 +28,19 @@ public class MainRouter implements Router {
         ControllerLocator memlocator = MemberControllerLocator.getInstance();
 
         Controller controller = null;
-        switch (menu) {
-            case JOIN : controller =  memlocator.find(Menu.JOIN); break;
+        switch(menu) {
+            case JOIN: controller =  memlocator.find(Menu.JOIN); break;
             case LOGIN: controller = memlocator.find(Menu.LOGIN); break;
             default: controller = new MainController();
         }
-        controller.run();  // common(), show(), prompt()
+
+        controller.run(); // common(), show(), prompt()
     }
 
     @Override
     public void start() {
-        while (true){
-            change(Menu.MAIN);// 첫 화면은 메인 컨트롤러 출력 화면.
+        while(true) {
+            change(Menu.MAIN); // 첫 화면은 메인 컨트롤러 출력 화면
         }
     }
 }
