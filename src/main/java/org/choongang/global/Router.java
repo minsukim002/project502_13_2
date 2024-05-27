@@ -5,7 +5,7 @@ package org.choongang.global;
 import org.choongang.global.constants.Menu;
 
 public interface Router {
-    void chang(Menu menu);
+    void change(Menu menu);
     void start();
 
 }
